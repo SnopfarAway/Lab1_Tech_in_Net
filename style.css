@@ -1,153 +1,271 @@
 /* Общие стили */ 
-*  { 
+* { 
      margin: 0; 
      padding: 0;
-   }
+}
+article, figure, footer, header, nav, section {display: block;}
+ul { 
+     list-style: none;
+}
+a { 
+     text-decoration: none; 
+} 
 
-   article, figure, footer, header, nav, section {display: block;}
-   ul { 
-        list-style: none;
-   }
-   a { 
-        text-decoration: none; 
-   } 
+/* Шапка */ 
+header { 
+     width: 100%; 
+     margin-bottom: 30px; 
+     position: relative; 
+     height: 70px; 
+}
 
-   /* Шапка */ 
-   header { 
-        width: 100%; 
-        margin-bottom: 30px; 
-        position: relative; 
-        height: 70px; 
-   }
+/* Меню*/ 
+.logo { 
+     display: block; 
+     float: left;
+     padding: 25px;
+     padding-left: 0px;
+} 
+#menu { 
+     float: right; 
+}
+#menuBtn {
+     float: right;
+     position: absolute;
+     top: 15px;
+     right: 15px;
+     cursor: pointer;
+     display: none;
+}
+#menu li { 
+     display: inline-block; 
+} 
+#menu a { 
+     text-transform: uppercase; 
+     display: block; 
+     color: darkcyan; 
+     padding: 25px; 
+} 
+#menu a:hover { 
+     color: #fff; 
+     background-color: darkcyan; 
+} 
 
-   /* Меню*/ 
-   .logo { 
-        display: block; 
-        float: left;
-        padding: 25px; 
-   } 
-   .menu { 
-        float: right; 
-   }
-   .menu li { 
-        display: inline-block; 
-   } 
-   .menu a { 
-        text-transform: uppercase; 
-        display: block; 
-        color: darkcyan; 
-        padding: 25px; 
-   } 
-   .menu a:hover { 
-        color: #fff; 
-        background-color: darkcyan; 
-   } 
+/* Основное содержимое */ 
+.container { 
+     margin: 0 auto; 
+     width: 100%; 
+     max-width: 960px;
+     clear: both;
+}
 
-   /* Основное содержимое */ 
-   .container { 
-        margin: 0 auto; 
-        width: 100%; 
-        max-width: 960px;
-        clear: both;
-   } 
-   .container article {
-        padding-top: 10px;
-        display: inline-block; 
-        position: relative;
-   }
+/* Закладки */
+.bookmark {
+     color: #00AC6B;
+}
+.added {
+     color: #FF4F00;
+}
+.bookmark-list a {
+     margin-right: 5px;
+}
 
-   .container article img {
-        float: left; 
-   }
+/* Статьи */
+article {
+     padding-top: 10px;
+     min-height: 400px;
+}
+article img {
+     float: left;
+}
 
-   /* Футер */ 
-   footer { 
-        margin-top: 30px; 
-        height: 70px; 
-        line-height: 70px;
-   } 
-   .col-three { 
-        width: 33.3333333333%; 
-        float: left; 
-        text-align: center; 
-   }
-   
-   @media screen and (min-width: 768px) and (max-width: 1024px) { 
-    /* Ширину класса container делаем резиновой */ 
+/* Подробнее */
+.article_text {
+     display: none;
+}
+.date {
+     margin-top: 2px;
+}
+
+/*Модальное окно*/
+.modal {
+     display: none;
+     position: fixed;
+     z-index: 1;
+     left: 0%;
+     top: 0%;
+     width: 100%;
+     height: 100%;
+     overflow: auto;
+     background-color: rgba(0, 0, 0, 0.6);
+}
+.modal-content {
+     background-color: #fefefe;
+     margin: 15% auto;
+     padding: 30px;
+     border: 1px solid #888;
+     width: 80%;
+     max-width: 960px;
+     -webkit-birder-radius: 6px;
+     -moz-border-radius: 6px;
+     border-radius: 6px;
+}
+#close {
+     color: #aaa;
+     float: right;
+     font-size: 20px;
+     font-weight: bold;
+     width: 15px;
+     height: 15px;
+     position: absolute;
+     top: 20px;
+     right: 20px;
+     fill: #444;
+     cursor: pointer;
+}
+
+/*Обратная связь*/
+input, textarea {
+     border: solid 1px #CCCCCC;
+     margin-left: 10px;
+     margin-top: 5px;
+     margin-bottom: 5px;
+     padding: 4px;
+     outline: 0;
+     font: Verdana, Geneva, sans-serif;
+     width: 200px;
+     background: #F9F9F9;
+     -webkit-birder-radius: 4px;
+     -moz-border-radius: 4px;
+     border-radius: 4px;
+}
+textarea {
+     width: 400px;
+     height: 150px;
+     line-height: 150%;
+}
+.send input {
+     width: auto;
+     margin-bottom: 10px;
+     border: 2px solid #E0E0F3;
+     font: Verdana, Geneva, sans-serif;
+     background-color: #E5E5F8;
+}
+
+input:hover, textarea:hover, input:focus, textarea:focus {
+     border-color: #A0A0A0;
+}
+
+.send input:hover {
+     border: 2px solid #C0C0E3;
+}
+
+/* Футер */ 
+footer { 
+     margin-top: 30px; 
+     height: 70px; 
+     line-height: 70px;
+} 
+.col-three { 
+     width: 33.3333333333%; 
+     float: left; 
+     text-align: center; 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) { 
+     /* Ширину класса container делаем резиновой */ 
      .container { 
           max-width: 90%; 
      } 
-     .container article img {
-          display: block;
-          float: none;
-          margin-left: auto;
-          margin-right: auto;
-     }
-    }
+}
 
-   @media screen and (min-width: 480px) and (max-width: 768px) {
+@media screen and (min-width: 480px) and (max-width: 768px) {
+     header {
+          max-height: 250px;
+     }
      .logo {
           float: none;
-          padding-left: 0px; 
      }
-     .menu { 
-          float: left;
-     }
-     .menu li {
+     #menuBtn {
           display: block;
      }
-     .menu a {
-          padding-left: 0px; 
+     #menu { 
+          background-color: rgba(255, 255, 255, 0.95);
+          -webkit-birder-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          float: none;
+          display: none;
      }
-    /* Ширину класса container делаем резиновой */ 
+     #menu li {
+          display: block;
+     }
+     .l {
+          text-align: center; 
+     }
+     
+     /* Ширину класса container делаем резиновой */ 
      .container { 
-        max-width: 90%; 
+          max-width: 90%; 
      } 
-     .container article img {
-        display: block;
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
+     article img {
+          float: none;
      }
-   
-    /* Расположение блоков в footer делаем в одну колонку */  
-     .col-three { 
-        float: none; 
-        width: 100%; 
-        text-align: center;
-        height: 40px;
-     } 
-    }
 
-   @media screen and (max-width: 480px) {
-    .logo {
-        float: none;
-        padding-left: 0px; 
-    }
-    .menu { 
-        float: left;
-    }
-    .menu li {
-        display: block;
-    }
-    .menu a {
-        padding-left: 0px; 
-    }
-    /* Ширину класса container делаем резиновой */ 
-     .container { 
-        max-width: 90%; 
-     } 
-     .container article img {
-        display: block;
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
-     }
-    /* Расположение блоков в footer делаем в одну колонку */  
+     /* Расположение блоков в footer делаем в одну колонку */  
      .col-three { 
-        float: none; 
-        width: 100%; 
-        text-align: center;
-        height: 40px;
+          float: none; 
+          width: 100%; 
+          text-align: center;
+          height: 40px;
+     } 
+}
+
+@media screen and (max-width: 480px) {
+     header {
+          max-height: 250px;
      }
-    }
+     .logo {
+          float: none;
+     }
+     #menuBtn {
+          display: block;
+     }
+     #menu {
+          background-color: rgba(255, 255, 255, 0.95);
+          -webkit-birder-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          float: none;
+          
+     }
+     #menu li {
+          display: block;
+     }
+     .l {
+          text-align: center; 
+     }
+     
+     /* Ширину класса container делаем резиновой */ 
+     .container { 
+          max-width: 90%; 
+     } 
+     article img {
+          float: none;
+     }
+     textarea {
+          width: 200px;
+          height: 150px;
+          line-height: 150%;
+     }
+     /* Расположение блоков в footer делаем в одну колонку */  
+     .col-three { 
+          float: none; 
+          width: 100%; 
+          text-align: center;
+          height: 40px;
+     }
+}
+
+
+     
