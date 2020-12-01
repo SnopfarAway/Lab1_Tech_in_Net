@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script defer src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -75,7 +76,10 @@
                 <textarea name="msg" placeholder="Текст сообщения"></textarea>
               </p>
               <p class="send"> <!-- Блок кнопки отправки сообщения-->
-                <input type="submit" value="Отправить"></input>
+                <input type="submit" value="Отправить" disabled="disabled"></input>
+              </p>
+              <p class="check"> <!-- Блок кнопки отправки сообщения-->
+                <input type="checkbox" value="a1"> Я согласен на обработку персональных данных</input>
               </p>
             </form> <!-- Конец блока обратной связи -->
           </div> <!-- Конец блока содержимого модального окна -->

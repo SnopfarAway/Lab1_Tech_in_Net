@@ -14,9 +14,9 @@ a {
 /* Шапка */ 
 header { 
      width: 100%; 
-     margin-bottom: 30px; 
      position: relative; 
-     height: 70px; 
+     height: 70px;
+     background-color: rgba(255, 255, 255);
 }
 
 /* Меню*/ 
@@ -160,6 +160,14 @@ input:hover, textarea:hover, input:focus, textarea:focus {
      border: 2px solid #C0C0E3;
 }
 
+.check input {
+     width: auto;
+     margin-bottom: 10px;
+     border: 2px solid #E0E0F3;
+     font: Verdana, Geneva, sans-serif;
+     background-color: #E5E5F8;
+}
+
 /* Футер */ 
 footer { 
      margin-top: 30px; 
@@ -172,11 +180,21 @@ footer {
      text-align: center; 
 }
 
+@media screen and (min-width: 1024px) { 
+     /* Ширину класса container делаем резиновой */ 
+     #menu { 
+          display: block;
+     }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1024px) { 
      /* Ширину класса container делаем резиновой */ 
      .container { 
           max-width: 90%; 
      } 
+     #menu { 
+          display: block;
+     }
 }
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
@@ -237,7 +255,7 @@ footer {
           -moz-border-radius: 4px;
           border-radius: 4px;
           float: none;
-          
+          display: none;
      }
      #menu li {
           display: block;

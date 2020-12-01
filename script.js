@@ -1,30 +1,20 @@
 // Реализация добавления статей в закладки
-var bookmarkBtn = document.querySelectorAll('.bookmark'); // зафиксировать информацию обо всех кнопках "добавить в закладки/убрать из закладок"
-
-function bookmarkClick(e) { // добавить статью в закладки/убрать статью из закладок
-    e.preventDefault(); // отменить действия по умолчанию для элемента e
-    var bm = this; // зафиксировать информацию о кнопке, на которую нажали
-    bm.classList.toggle('added'); // добавить кнопке класс "добавлена" если его нет и убрать если есть
-    var parentId = bm.parentElement.id; // зафиксировать id статьи, закладку которой мы решили добавить/убрать
-    var bookMarks = document.querySelector('.bookmark-list'); // зафиксировать информацию о листе с закладками
-
-    if(bm.classList.contains('added')) { // добавить статью в закладки ->
-        bm.textContent = 'Удалить из закладок'; // поменять название кнопки с "Добавить в закладки" на "Удалить из закладок"
-        var headerArticle = document.querySelector('#' + parentId +' h2'); // зафиксировать название статьи
-        var linkArticle = document.createElement('a'); // создать ссылку на статью
-        linkArticle.textContent = headerArticle.textContent; // присвоить ссылке название статьи
-        linkArticle.setAttribute('href', '#' + parentId); // установить атрибут для ссылки
-        bookMarks.append(linkArticle); // добавить ссылку на статью в конец списка закладок
-    } else { // убрать статью из закладок ->
-        bm.textContent = 'Добавить в закладки'; // поменять название кнопки с "Удалить из закладок" на "Добавить в закладки"
-        var linkRemove = document.querySelector('a[href="#'+ parentId +'"]'); // зафиксировать информацию о ссылке, которую нужно удалить из списка закладок
-        linkRemove.remove(); // убрать ссылку на статью
-    }
-}
-
-for(let i=0; i<bookmarkBtn.length; i++){
-    bookmarkBtn[i].onclick = bookmarkClick; // выполнить установленные действия при клике на кнопку "добавить в закладки/убрать из закладок"
-}
+$( document ).ready(function() { // выполнить, когда документ прогрузился
+    $('.bookmark').click(function (e) { // при нажатии на элемент с классом .bookmark выполнить
+        e.preventDefault(); // отменить действия по умолчанию для элемента e
+        $(this).toggleClass('added'); // поменять класс элемента, на который нажали, на added, если был "bookmark" и наоборот
+        var parentId = $(this).parent().attr("id"); // зафиксировать информацию об атрибуте родительского элемента элемента, на который мы нажали
+        var bookMarks = $('.bookmark-list'); // зафиксировать информацию о списке закладок
+        if($(this).hasClass('added')) { // если элемент, на который нажали имеет класс "added"
+            $(this).text("Удалить из закладок"); // поменять текст этого элемента
+            var text = $('#' + parentId +' h2').text(); // зафиксировать информацию о названии статьи
+            $('<a>', { href: '#' + parentId, text: text}).appendTo(bookMarks); // создать элемент <a> с ссылкой на статью и названием в списке закладок
+        } else { // если элемент, на который нажали имеет класс ".bookmark"
+            $(this).text("Добавить в закладки"); // поменять текст этого элемента
+            $('a[href="#'+ parentId +'"]').remove(); // убрать ссылку на статью
+        }
+    });
+});
 
 // Реализация сворачивания и разворачивания статьи
 var toggle = document.getElementsByClassName("toggle"); // зафиксировать информацию обо всех кнопках "Подробнее/Скрыть"
@@ -44,7 +34,7 @@ for (let i=0; i<toggle.length; i++) {
     }
 }
 
-// Модальне окно
+// Модальное окно
 var modal = document.getElementById("myModal"); // зафиксировать информацию о модальном окне
 var btn = document.getElementById("letter"); // зафиксировать информацию о кнопке вызова модального окна
 var closeBtn = document.getElementById("close"); // зафиксировать информацию о кнопке закрытия модального окна
@@ -75,3 +65,31 @@ function menuBtnClick(e) {
     }
 }
 menuBtn.onclick = menuBtnClick; // выполнить при нажатии на кнопку "Меню"
+
+// Реализация фиксации при прокрутке кнопки меню
+$(document).ready(function() {
+    menu_top = $('header').offset().top;
+    $(window).scroll(function () {             // отслеживаем событие прокрутки страницы
+        if ($(window).scrollTop() > menu_top) {  // если прокрутка дошла до меню
+          if ($('header').css('position') != 'fixed') {  // проверяем, если меню еще не зафиксировано
+            $('header').css('position','fixed');  // задаем блоку меню свойство position = fixed
+          }
+        } else {                                 // прокрутка страницы обратно вверх достигла место "перехода" меню
+          if ($('header').css('position') == 'fixed') {  // если меню зафиксировано
+            $('header').css('position','');
+          }
+        }
+    });
+});
+
+// Реализация работы кнопки согласия на обработу персональных данных
+$(document).ready(function(){
+    $('.check input').click(function (e) {
+        var send = $('.send input').attr('disabled');
+        if(typeof send !== typeof undefined && send !== false) {
+            $('.send input').removeAttr('disabled');
+        } else {
+            $('.send input').attr('disabled','disabled');
+        }
+    });
+});
