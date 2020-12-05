@@ -66,7 +66,7 @@ function menuBtnClick(e) {
 }
 menuBtn.onclick = menuBtnClick; // выполнить при нажатии на кнопку "Меню"
 
-// Реализация фиксации при прокрутке кнопки меню
+// Реализация фиксации меню при прокрутке страницы
 $(document).ready(function() {
     menu_top = $('header').offset().top;
     $(window).scroll(function () {             // отслеживаем событие прокрутки страницы
@@ -76,20 +76,20 @@ $(document).ready(function() {
           }
         } else {                                 // прокрутка страницы обратно вверх достигла место "перехода" меню
           if ($('header').css('position') == 'fixed') {  // если меню зафиксировано
-            $('header').css('position','');
+            $('header').css('position',''); // удаляем у блока меню свойство position = fixed
           }
         }
     });
 });
 
-// Реализация работы кнопки согласия на обработу персональных данных
+// Реализация работы кнопки согласия на обработку персональных данных
 $(document).ready(function(){
-    $('.check input').click(function (e) {
-        var send = $('.send input').attr('disabled');
-        if(typeof send !== typeof undefined && send !== false) {
-            $('.send input').removeAttr('disabled');
+    $('.check input').click(function (e) { // при нажатии на элемент с селектором .check input выполнить
+        var send = $('.send input').attr('disabled'); // зафиксировать информацию об атрибуте disabled
+        if(typeof send !== typeof undefined && send !== false) { // проверить, существует ли атрибут disabled
+            $('.send input').removeAttr('disabled'); // удалить, если существует
         } else {
-            $('.send input').attr('disabled','disabled');
+            $('.send input').attr('disabled','disabled'); // добавить если не существует
         }
     });
 });

@@ -1,0 +1,35 @@
+body {
+  background-color: hsl(0, 0%, 98%);
+}
+body header {
+  background-color: hsl(0, 0%, 95%);
+  border-radius: 5px;
+}
+body header .logo span,
+body header #menu li a {
+  color: hsl(180, 100%, 17%);
+}
+body header #menu li {
+  border-radius: 5px;
+}
+body header #menu {
+  border-radius: 2px;
+}
+body .toggle {
+  color: hsl(180, 40%, 47%);
+}
+body .toggle:hover {
+  text-decoration: underline;
+}
+body .col-three a {
+  color: hsl(210, 100%, 27%);
+}
+body #social a:visited {
+  color: hsl(180, 100%, 7%);
+}
+body .bookmark {
+  color: hsl(180, 100%, 17%);
+}
+body .added {
+  color: #FF4F00;
+}

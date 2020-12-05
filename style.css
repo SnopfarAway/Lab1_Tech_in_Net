@@ -180,13 +180,6 @@ footer {
      text-align: center; 
 }
 
-@media screen and (min-width: 1024px) { 
-     /* Ширину класса container делаем резиновой */ 
-     #menu { 
-          display: block;
-     }
-}
-
 @media screen and (min-width: 768px) and (max-width: 1024px) { 
      /* Ширину класса container делаем резиновой */ 
      .container { 
@@ -212,6 +205,7 @@ footer {
           -webkit-birder-radius: 4px;
           -moz-border-radius: 4px;
           border-radius: 4px;
+          margin-top: 2px;
           float: none;
           display: none;
      }
@@ -254,6 +248,7 @@ footer {
           -webkit-birder-radius: 4px;
           -moz-border-radius: 4px;
           border-radius: 4px;
+          margin-top: 2px;
           float: none;
           display: none;
      }

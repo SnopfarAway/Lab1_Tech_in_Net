@@ -1,0 +1,52 @@
+@bg-color: hsl(0, 0%, 98%);
+@header-color: hsl(0, 0%, 100%);
+@link-color: hsl(180, 100%, 27%);
+@radius: 5px;
+
+.act() {
+    color: darken(saturate(@link-color, 20%), 10%);
+}
+.rad(@persent) {
+    border-radius: @persent;
+}
+
+body {
+  background-color: @bg-color;
+  header {
+    background-color: darken(@header-color, 5%);
+    .rad(5px);
+
+    .logo span, #menu li a {
+        .act;
+    }
+    #menu li {
+        .rad(5px);
+    }
+    #menu {
+        .rad(2px);
+    }
+  }
+  .toggle {
+    color: lighten(desaturate(@link-color, 60%), 20%);
+  }
+  .toggle:hover {
+    text-decoration: underline;
+  }
+  .col-three a {
+    color: spin(@link-color, 30%);
+  }
+
+  #social a:visited {
+    color: darken(@link-color, 20%);
+  }
+  
+  .bookmark {
+    .act;
+  }
+  .added {
+    color: #FF4F00;
+  }
+}
+
+
+
